@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-table
+      author: Orxan Mirzayev
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullAble: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: last_name
+                  type: varchar(50)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: address
+                  type: varchar(100)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: email
+                  type: varchar(100)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: username
+                  type: varchar(50)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: password
+                  type: varchar(150)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: phone
+                  type: varchar(50)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: status
+                  type: varchar(20)
+                  constraints:
+                    nullAble: false

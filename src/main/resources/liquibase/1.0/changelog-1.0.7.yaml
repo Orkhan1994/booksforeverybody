@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-roles-table
+      author: Orxan Mirzayev
+      changes:
+        - createTable:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: role_id
+                  type: bigint
+                  constraints:
+                    nullAble: false

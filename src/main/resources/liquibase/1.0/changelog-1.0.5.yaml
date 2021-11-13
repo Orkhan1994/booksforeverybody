@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-books_carts-table
+      author: Orxan Mirzayev
+      changes:
+        - createTable:
+            tableName: books_carts
+            columns:
+              - column:
+                  name: book_id
+                  type: bigint
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: cart_id
+                  type: bigint
+                  constraints:
+                    nullAble: false

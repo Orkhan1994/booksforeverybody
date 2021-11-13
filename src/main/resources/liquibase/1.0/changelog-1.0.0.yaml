@@ -1,0 +1,67 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-books-table
+      author: Orxan Mirzayev
+      changes:
+        - createTable:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullAble: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: category
+                  type: varchar(30)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: author
+                  type: varchar(60)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: price
+                  type: decimal(5,2)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: publisher
+                  type: varchar(100)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: status
+                  type: varchar(20)
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: update_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: year
+                  type: int
+                  constraints:
+                    nullAble: false

@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-books-orders-table
+      author: Orxan Mirzayev
+      changes:
+        - createTable:
+            tableName: books_orders
+            columns:
+              - column:
+                  name: book_id
+                  type: bigint
+                  constraints:
+                    nullAble: false
+              - column:
+                  name: order_id
+                  type: bigint
+                  constraints:
+                    nullAble: false
+
+
+
+
