@@ -6,25 +6,18 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "comments")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentEntity{
+@Entity
+@Table(name = "roles")
+public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "rating")
-    private Integer rating;
-
-    @Column(name = "message")
-    private String message;
-
-    @Column(name = "book_id")
-    private Long bookId;
-
+    @Column(name = "name")
+    private String name;
 }

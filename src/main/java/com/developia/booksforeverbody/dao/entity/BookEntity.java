@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -48,4 +50,8 @@ public class BookEntity {
     @Column(name = "status")
     @Enumerated(value = EnumType.STRING)
     private BookStatus status;
+
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id")
+    private List<CommentEntity> comments=new ArrayList<>();
 }
