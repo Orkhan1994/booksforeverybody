@@ -1,10 +1,14 @@
 package com.developia.booksforeverbody.dao.entity;
 
+import liquibase.license.LicenseService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,5 +23,11 @@ public class OrderEntity {
     private Long id;
 
     @Column(name = "total_amount")
-    private Double totalAmount;
+    private BigDecimal totalAmount;
+
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @JoinTable(name = "books_orders",
+            joinColumns =@JoinColumn(name = "order_id"),
+    inverseJoinColumns = @JoinColumn(name = "book_id"))
+    private List<BookEntity> books=new ArrayList<>();
 }

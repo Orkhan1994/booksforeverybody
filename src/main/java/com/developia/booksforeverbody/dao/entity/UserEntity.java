@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -41,4 +43,10 @@ public class UserEntity {
     @Column(name = "status")
     @Enumerated(value = EnumType.STRING)
     private UserStatus status;
+
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<RoleEntity> roles=new ArrayList<>();
 }
