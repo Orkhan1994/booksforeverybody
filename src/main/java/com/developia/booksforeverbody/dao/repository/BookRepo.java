@@ -12,5 +12,5 @@ public interface BookRepo extends JpaRepository<BookEntity,Long> {
 
     List<BookEntity> findAllByStatusIsNot(BookStatus status);
 
-    Optional< BookEntity> findByIdStatusIsNot(Long id, BookStatus status);
+    Optional< BookEntity> findByIdAndStatusIsNot(Long id, BookStatus status);
 }

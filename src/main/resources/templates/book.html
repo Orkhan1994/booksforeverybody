@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Book</title>
 </head>
 <body>
-
+       Name:<p th:text="${book.name}"></p>
+       Category:<p th:text="${book.category}"></p>
+       Author:<p th:text="${book.author}"></p>
+       Price:<p th:text="${book.price}"></p>
+       Publisher:<p th:text="${book.publisher}"></p>
+       Year:<p th:text="${book.year}"></p>
+       Description:<p th:text="${book.description}"></p>
 </body>
 </html>

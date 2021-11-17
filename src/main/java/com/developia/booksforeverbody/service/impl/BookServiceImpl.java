@@ -23,7 +23,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookEntity getBookById(Long id) {
-        return bookRepository.findByIdStatusIsNot(id,BookStatus.DELETED).orElseThrow(()->{
+        return bookRepository.findByIdAndStatusIsNot(id,BookStatus.DELETED).orElseThrow(()->{
             throw new NotFoundException("Book not found");
                 }
                 );

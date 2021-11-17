@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstarpcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Books</title>
 </head>
 <body>
-<table>
+<table class="table table-striped">
     <tr>
        <th>Name</th>
        <th>Price</th>
@@ -13,6 +14,7 @@
     <tr th:each="book:${books}">
         <td th:text="${book.name}"></td>
         <td th:text="${book.price}"></td>
+        <td><a th:href="@{'/books/'+${book.id}}">view </a></td>
     </tr>
 
 </table>
