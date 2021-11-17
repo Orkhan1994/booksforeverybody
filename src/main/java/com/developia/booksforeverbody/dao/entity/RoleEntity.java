@@ -18,6 +18,7 @@ public class RoleEntity {
     @Column(name = "id")
     private Long id;
 
+    @Enumerated(value = EnumType.STRING)
     @Column(name = "name")
-    private String name;
+    private Role name;
 }
