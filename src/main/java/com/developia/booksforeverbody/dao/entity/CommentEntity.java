@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentEntity{
+public class CommentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +26,8 @@ public class CommentEntity{
 
     @Column(name = "book_id")
     private Long bookId;
+    
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    private UserEntity user;
 
 }
