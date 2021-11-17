@@ -1,6 +1,7 @@
 package com.developia.booksforeverbody.controller;
 
 import com.developia.booksforeverbody.exception.NotFoundException;
+import com.developia.booksforeverbody.exception.UsernameOrPasswordIncorrectException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,6 +21,17 @@ public class ErrorHandler {
         mv.setViewName("error-page");
         mv.addObject("details",ex.getMessage());
         mv.addObject("path",request.getRequestURL());
+
+        return mv;
+    }
+
+    @ExceptionHandler(UsernameOrPasswordIncorrectException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ModelAndView handler(HttpServletRequest request,UsernameOrPasswordIncorrectException ex){
+        ModelAndView mv=new ModelAndView();
+
+        mv.setViewName("error-page");
+        mv.addObject("details",ex.getMessage());
 
         return mv;
     }
